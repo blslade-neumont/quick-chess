@@ -1,6 +1,6 @@
 /***************************************************************
  * File: Cells.cs
- * Created By: Syed Ghulam Akbar		Date: 27 June, 2005
+ * Created By: Syed Ghulam Akbar        Date: 27 June, 2005
  * Description: This class is a collection of the Cell objects
  * and provide methods to add and remove chess cells
  ***************************************************************/
@@ -12,70 +12,70 @@ using System.Xml;
 
 namespace ChessLibrary
 {
-	/// <summary>
-	/// 
-	/// </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     [Serializable]
-	public class Cells
-	{
-		Hashtable m_Cells;
+    public class Cells
+    {
+        Hashtable m_Cells;
 
-		public Cells()
-		{
-			m_Cells = new Hashtable();	// Make a list of the cells
-		}
+        public Cells()
+        {
+            m_Cells = new Hashtable();    // Make a list of the cells
+        }
 
-		// return the unique key for the cell
-		private string GetKey(Cell newcell)
-		{
-			return ""+ newcell.row + newcell.col;
-		}
+        // return the unique key for the cell
+        private string GetKey(Cell newcell)
+        {
+            return ""+ newcell.row + newcell.col;
+        }
 
-		// return the unique key for the cell
-		private string GetKey(int row, int col)
-		{
-			return ""+ row + col;
-		}
+        // return the unique key for the cell
+        private string GetKey(int row, int col)
+        {
+            return ""+ row + col;
+        }
 
-		// Add new cell to the collection
-		public void Add(Cell newcell)
-		{
-			m_Cells.Add(GetKey(newcell), newcell);	// Add the new object to the cell collection
-		}
+        // Add new cell to the collection
+        public void Add(Cell newcell)
+        {
+            m_Cells.Add(GetKey(newcell), newcell);    // Add the new object to the cell collection
+        }
 
-		// remove the given cell from the collection
-		public void Remove(int row, int col)
-		{
-			string key=GetKey(row,col);
-			if (m_Cells.ContainsKey(key)) // if the item exists in the collection
-				m_Cells.Remove(key);	  // remove it
-		}
+        // remove the given cell from the collection
+        public void Remove(int row, int col)
+        {
+            string key=GetKey(row,col);
+            if (m_Cells.ContainsKey(key)) // if the item exists in the collection
+                m_Cells.Remove(key);      // remove it
+        }
 
-		// remove all the cell objects from the collection
-		public void Clear()
-		{
-			m_Cells.Clear();
-		}
+        // remove all the cell objects from the collection
+        public void Clear()
+        {
+            m_Cells.Clear();
+        }
 
-		// get the new item by rew and column
-		public Cell this[int row, int col]
-		{
-			get
-			{
-				return (Cell)m_Cells[GetKey(row,col)];
-			}
-		}
+        // get the new item by rew and column
+        public Cell this[int row, int col]
+        {
+            get
+            {
+                return (Cell)m_Cells[GetKey(row,col)];
+            }
+        }
 
-		// get the new item by string location
-		public Cell this[string strloc]
-		{
-			get
-			{
-				int col=char.Parse(strloc.Substring(0,1).ToUpper())-64; // Get row from first ascii char i.e. a=1, b=2 and so on
-				int row=int.Parse(strloc.Substring(1,1));				  // Get column value directly, as it's already numeric
-				return (Cell)m_Cells[GetKey(row,col)];
-			}
-		}
+        // get the new item by string location
+        public Cell this[string strloc]
+        {
+            get
+            {
+                int col=char.Parse(strloc.Substring(0,1).ToUpper())-64; // Get row from first ascii char i.e. a=1, b=2 and so on
+                int row=int.Parse(strloc.Substring(1,1));                  // Get column value directly, as it's already numeric
+                return (Cell)m_Cells[GetKey(row,col)];
+            }
+        }
 
         /// <summary>
         /// Serialize the Game object as XML String
@@ -121,5 +121,5 @@ namespace ChessLibrary
                     cellXml = cellXml.NextSibling;
                 }
         }
-	}
+    }
 }

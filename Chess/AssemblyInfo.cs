@@ -13,7 +13,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyProduct("Quick Chess")]
 [assembly: AssemblyCopyright("Copyright (c) 2008-2011 Syed Ghulam Akbar")]
 [assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]		
+[assembly: AssemblyCulture("")]        
 
 //
 // Version information for an assembly consists of the following four values:

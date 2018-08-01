@@ -6,85 +6,85 @@ using System.Data;
 
 namespace Chess
 {
-	/// <summary>
-	/// Summary description for ChessMain.
-	/// </summary>
-	public class ChessMain : System.Windows.Forms.Form
-	{
-		private GameUI GameObj;		// The Game UI object
-		public System.Windows.Forms.PictureBox WhitePlayerImage;
-		public System.Windows.Forms.PictureBox BlackPlayerImage;
-		public System.Windows.Forms.Label BlackPlayerName;
-		public System.Windows.Forms.Label WhitePlayerName;
-		public System.Windows.Forms.Label WhitePlayerTime;
-		public System.Windows.Forms.Label BlackPlayerTime;
-		public System.Windows.Forms.ListView lstHistory;
-		public System.Windows.Forms.Panel PnlComputerThinkStatus;
-		public System.Windows.Forms.ProgressBar PrgComputerThinkDepth;
-		public System.Windows.Forms.Label LblComuterThinkLabel;
-		public Chess.CaptureBar ChessCaptureBar;
+    /// <summary>
+    /// Summary description for ChessMain.
+    /// </summary>
+    public class ChessMain : System.Windows.Forms.Form
+    {
+        private GameUI GameObj;        // The Game UI object
+        public System.Windows.Forms.PictureBox WhitePlayerImage;
+        public System.Windows.Forms.PictureBox BlackPlayerImage;
+        public System.Windows.Forms.Label BlackPlayerName;
+        public System.Windows.Forms.Label WhitePlayerName;
+        public System.Windows.Forms.Label WhitePlayerTime;
+        public System.Windows.Forms.Label BlackPlayerTime;
+        public System.Windows.Forms.ListView lstHistory;
+        public System.Windows.Forms.Panel PnlComputerThinkStatus;
+        public System.Windows.Forms.ProgressBar PrgComputerThinkDepth;
+        public System.Windows.Forms.Label LblComuterThinkLabel;
+        public Chess.CaptureBar ChessCaptureBar;
 
-		private System.Windows.Forms.MainMenu MainMenu;
-		private System.Windows.Forms.MenuItem menuItem1;
-		private System.Windows.Forms.MenuItem menuItem5;
-		private System.Windows.Forms.MenuItem menuItem6;
-		private System.Windows.Forms.MenuItem menuItem7;
-		private System.Windows.Forms.MenuItem menuItem8;
-		private System.Windows.Forms.MenuItem menuItem9;
-		private System.Windows.Forms.MenuItem mnuNewGame;
-		private System.Windows.Forms.MenuItem mnuFileExit;
-		private System.Windows.Forms.MenuItem menuItem11;
-		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.MenuItem menuItem14;
-		private System.Windows.Forms.Timer TurnTicker;
-		private System.ComponentModel.IContainer components;
-		private System.Windows.Forms.MenuItem mnuEditUndoMove;
-		private System.Windows.Forms.MenuItem mnuEditRedoMove;
-		private System.Windows.Forms.MenuItem mnuEditShowLog;
-		private System.Windows.Forms.MenuItem mnuShowLog;
-		private System.Windows.Forms.MenuItem mnuHelp;
-		private System.Windows.Forms.ColumnHeader LstIndex;
-		private System.Windows.Forms.ColumnHeader lstMove;
-		private System.Windows.Forms.Panel panel2;
-		private System.Windows.Forms.MenuItem mnuComputerPlayer;
-		private System.Windows.Forms.MenuItem mnCompNullMove;
-		private System.Windows.Forms.MenuItem mnuCompPrincipleVar;
-		private System.Windows.Forms.MenuItem mnuCompQuiescentSearch;
+        private System.Windows.Forms.MainMenu MainMenu;
+        private System.Windows.Forms.MenuItem menuItem1;
+        private System.Windows.Forms.MenuItem menuItem5;
+        private System.Windows.Forms.MenuItem menuItem6;
+        private System.Windows.Forms.MenuItem menuItem7;
+        private System.Windows.Forms.MenuItem menuItem8;
+        private System.Windows.Forms.MenuItem menuItem9;
+        private System.Windows.Forms.MenuItem mnuNewGame;
+        private System.Windows.Forms.MenuItem mnuFileExit;
+        private System.Windows.Forms.MenuItem menuItem11;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.MenuItem menuItem14;
+        private System.Windows.Forms.Timer TurnTicker;
+        private System.ComponentModel.IContainer components;
+        private System.Windows.Forms.MenuItem mnuEditUndoMove;
+        private System.Windows.Forms.MenuItem mnuEditRedoMove;
+        private System.Windows.Forms.MenuItem mnuEditShowLog;
+        private System.Windows.Forms.MenuItem mnuShowLog;
+        private System.Windows.Forms.MenuItem mnuHelp;
+        private System.Windows.Forms.ColumnHeader LstIndex;
+        private System.Windows.Forms.ColumnHeader lstMove;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.MenuItem mnuComputerPlayer;
+        private System.Windows.Forms.MenuItem mnCompNullMove;
+        private System.Windows.Forms.MenuItem mnuCompPrincipleVar;
+        private System.Windows.Forms.MenuItem mnuCompQuiescentSearch;
         private MenuItem mnuShowComputerThinkDepth;
         private MenuItem mnuAbout;
         private MenuItem mnuSaveGame;
         private MenuItem mnuLoadGame;
-		private System.Windows.Forms.MenuItem mnuShowMoveHelp;
-		
-		public ChessMain()
-		{
-			//
-			// Required for Windows Form Designer support
-			//
-			InitializeComponent();
-			//
-			// TODO: Add any constructor code after InitializeComponent call
-			//
-		}
+        private System.Windows.Forms.MenuItem mnuShowMoveHelp;
+        
+        public ChessMain()
+        {
+            //
+            // Required for Windows Form Designer support
+            //
+            InitializeComponent();
+            //
+            // TODO: Add any constructor code after InitializeComponent call
+            //
+        }
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		protected override void Dispose( bool disposing )
-		{
-			if( disposing )
-			{
-			}
-			base.Dispose( disposing );
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        protected override void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+            }
+            base.Dispose( disposing );
+        }
 
-		#region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        #region Windows Form Designer generated code
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChessMain));
             this.MainMenu = new System.Windows.Forms.MainMenu(this.components);
@@ -481,18 +481,18 @@ namespace Chess
             this.PnlComputerThinkStatus.ResumeLayout(false);
             this.ResumeLayout(false);
 
-		}
-		#endregion
+        }
+        #endregion
 
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
-		[STAThread]
-		static void Main() 
-		{
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main() 
+        {
             Application.EnableVisualStyles();
-			Application.Run(new ChessMain());
-		}
+            Application.Run(new ChessMain());
+        }
 
         /// <summary>
         /// Enable the Save Menu
@@ -512,109 +512,109 @@ namespace Chess
             mnCompNullMove.Checked = GameObj.ChessGame.DoNullMovePruning;
         }
 
-		// Chess board load event. Initialize all the chess positions
-		private void ChessMain_Load(object sender, System.EventArgs e)
-		{
-			GameObj = new GameUI(this);
-			this.mnuShowMoveHelp.Checked = GameObj.ShowMoveHelp;	// Show the check box
-		}
+        // Chess board load event. Initialize all the chess positions
+        private void ChessMain_Load(object sender, System.EventArgs e)
+        {
+            GameObj = new GameUI(this);
+            this.mnuShowMoveHelp.Checked = GameObj.ShowMoveHelp;    // Show the check box
+        }
 
-		// Menu Handler
-		private void mnuNewGame_Click(object sender, System.EventArgs e)
-		{
-			GameObj.NewGame();	// Initialize the new game
+        // Menu Handler
+        private void mnuNewGame_Click(object sender, System.EventArgs e)
+        {
+            GameObj.NewGame();    // Initialize the new game
 
-			// Initialize computer player characterstics
-			if (GameObj.ChessGame!=null)
-			{
-				GameObj.ChessGame.DoNullMovePruning = mnCompNullMove.Checked;
-				GameObj.ChessGame.DoPrincipleVariation = mnuCompPrincipleVar.Checked;
-				GameObj.ChessGame.DoQuiescentSearch = mnuCompQuiescentSearch.Checked;
-			}
-		}
+            // Initialize computer player characterstics
+            if (GameObj.ChessGame!=null)
+            {
+                GameObj.ChessGame.DoNullMovePruning = mnCompNullMove.Checked;
+                GameObj.ChessGame.DoPrincipleVariation = mnuCompPrincipleVar.Checked;
+                GameObj.ChessGame.DoQuiescentSearch = mnuCompQuiescentSearch.Checked;
+            }
+        }
 
-		private void mnuFileExit_Click(object sender, System.EventArgs e)
-		{
-			Application.Exit();		// Send the terminate signal to all running threads
-		}
+        private void mnuFileExit_Click(object sender, System.EventArgs e)
+        {
+            Application.Exit();        // Send the terminate signal to all running threads
+        }
 
-		private void mnuShowMoveHelp_Click(object sender, System.EventArgs e)
-		{
-			GameObj.ShowMoveHelp = !GameObj.ShowMoveHelp;	// Reverse the show help check box state
-			this.mnuShowMoveHelp.Checked = GameObj.ShowMoveHelp;	// Show the check box
-		}
+        private void mnuShowMoveHelp_Click(object sender, System.EventArgs e)
+        {
+            GameObj.ShowMoveHelp = !GameObj.ShowMoveHelp;    // Reverse the show help check box state
+            this.mnuShowMoveHelp.Checked = GameObj.ShowMoveHelp;    // Show the check box
+        }
 
-		private void TurnTicker_Tick(object sender, System.EventArgs e)
-		{
-			if (GameObj.IsRunning && !GameObj.IsOver )	// game is in active state
-			{
-				GameObj.ShowPlayerTurn();
-			}
-		}
+        private void TurnTicker_Tick(object sender, System.EventArgs e)
+        {
+            if (GameObj.IsRunning && !GameObj.IsOver )    // game is in active state
+            {
+                GameObj.ShowPlayerTurn();
+            }
+        }
 
-		private void mnuEditUndoMove_Click(object sender, System.EventArgs e)
-		{
-			if (GameObj.IsRunning)	// game is in active state
-			{
-				GameObj.UndoMove();
-			}		
-		}
+        private void mnuEditUndoMove_Click(object sender, System.EventArgs e)
+        {
+            if (GameObj.IsRunning)    // game is in active state
+            {
+                GameObj.UndoMove();
+            }        
+        }
 
-		private void mnuEditRedoMove_Click(object sender, System.EventArgs e)
-		{
-			if (GameObj.IsRunning)	// game is in active state
-			{
-				GameObj.RedoMove();
-			}			
-		}
+        private void mnuEditRedoMove_Click(object sender, System.EventArgs e)
+        {
+            if (GameObj.IsRunning)    // game is in active state
+            {
+                GameObj.RedoMove();
+            }            
+        }
 
-		private void mnuShowLog_Click(object sender, System.EventArgs e)
-		{
-			mnuShowLog.Checked = !mnuShowLog.Checked;
+        private void mnuShowLog_Click(object sender, System.EventArgs e)
+        {
+            mnuShowLog.Checked = !mnuShowLog.Checked;
 
-			if (mnuShowLog.Checked)	// Need to show the log
-			{
-				this.Width +=190;
-				this.Height +=96;
-			}
-			else
-			{
-				this.Width -=190;
-				this.Height -=96;
-			}
-		}
+            if (mnuShowLog.Checked)    // Need to show the log
+            {
+                this.Width +=190;
+                this.Height +=96;
+            }
+            else
+            {
+                this.Width -=190;
+                this.Height -=96;
+            }
+        }
 
-		private void mnuHelp_Click(object sender, System.EventArgs e)
-		{
-		}
+        private void mnuHelp_Click(object sender, System.EventArgs e)
+        {
+        }
 
-		// Enable or disable null move pruning for the computer player
-		private void mnCompNullMove_Click(object sender, System.EventArgs e)
-		{
-			mnCompNullMove.Checked = !mnCompNullMove.Checked;
-			if (GameObj.ChessGame!=null)
-				GameObj.ChessGame.DoNullMovePruning = mnCompNullMove.Checked;
-		}
+        // Enable or disable null move pruning for the computer player
+        private void mnCompNullMove_Click(object sender, System.EventArgs e)
+        {
+            mnCompNullMove.Checked = !mnCompNullMove.Checked;
+            if (GameObj.ChessGame!=null)
+                GameObj.ChessGame.DoNullMovePruning = mnCompNullMove.Checked;
+        }
 
-		// Enable or disable principle variation search for the computer player
-		private void mnuCompPrincipleVar_Click(object sender, System.EventArgs e)
-		{
-			mnuCompPrincipleVar.Checked = !mnuCompPrincipleVar.Checked;
-			if (GameObj.ChessGame!=null)
-				GameObj.ChessGame.DoPrincipleVariation = mnuCompPrincipleVar.Checked;
-		}
+        // Enable or disable principle variation search for the computer player
+        private void mnuCompPrincipleVar_Click(object sender, System.EventArgs e)
+        {
+            mnuCompPrincipleVar.Checked = !mnuCompPrincipleVar.Checked;
+            if (GameObj.ChessGame!=null)
+                GameObj.ChessGame.DoPrincipleVariation = mnuCompPrincipleVar.Checked;
+        }
 
-		// Enable or disable quiescent search for the computer player
-		private void mnuCompQuiescentSearch_Click(object sender, System.EventArgs e)
-		{
-			mnuCompQuiescentSearch.Checked = !mnuCompQuiescentSearch.Checked;
-			if (GameObj.ChessGame!=null)
-				GameObj.ChessGame.DoQuiescentSearch = mnuCompQuiescentSearch.Checked;	
-		}
+        // Enable or disable quiescent search for the computer player
+        private void mnuCompQuiescentSearch_Click(object sender, System.EventArgs e)
+        {
+            mnuCompQuiescentSearch.Checked = !mnuCompQuiescentSearch.Checked;
+            if (GameObj.ChessGame!=null)
+                GameObj.ChessGame.DoQuiescentSearch = mnuCompQuiescentSearch.Checked;    
+        }
 
-		private void hScrollBar1_Scroll(object sender, System.Windows.Forms.ScrollEventArgs e)
-		{
-		}
+        private void hScrollBar1_Scroll(object sender, System.Windows.Forms.ScrollEventArgs e)
+        {
+        }
 
         private void mnuShowComputerThinkDepth_Click(object sender, EventArgs e)
         {
@@ -641,5 +641,5 @@ namespace Chess
         {
             GameObj.LoadGame();
         }
-	}
+    }
 }

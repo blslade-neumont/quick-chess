@@ -6,72 +6,72 @@ using System.Windows.Forms;
 
 namespace Chess
 {
-	/// <summary>
-	/// Summary description for NewGame.
-	/// </summary>
-	public class NewGame : System.Windows.Forms.Form
-	{
+    /// <summary>
+    /// Summary description for NewGame.
+    /// </summary>
+    public class NewGame : System.Windows.Forms.Form
+    {
         // Public variables
 
         public string ResourceFolderPath;      // This string gcontains the resoruce folder path, where all the external resources are stored
-        public bool bStartGame;		        // True when we need to start the game
+        public bool bStartGame;                // True when we need to start the game
 
-		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.GroupBox groupBox3;
-		private System.Windows.Forms.GroupBox groupBox4;
-		private System.Windows.Forms.Button btnStart;
-		private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnCancel;
 
-		public System.Windows.Forms.PictureBox BlackPlayerImage;
-		public System.Windows.Forms.RadioButton PlayersCvC;
-		public System.Windows.Forms.RadioButton PlayersHvC;
-		public System.Windows.Forms.RadioButton PlayesrHvH;
-		public System.Windows.Forms.RadioButton PlayerLevel3;
-		public System.Windows.Forms.RadioButton PlayerLevel2;
-		public System.Windows.Forms.RadioButton PlayerLevel1;
-		public System.Windows.Forms.TextBox BlackPlayerName;
-		public System.Windows.Forms.TextBox WhitePlayerName;
-		public System.Windows.Forms.PictureBox WhitePlayerImage;
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-		private System.ComponentModel.Container components = null;
+        public System.Windows.Forms.PictureBox BlackPlayerImage;
+        public System.Windows.Forms.RadioButton PlayersCvC;
+        public System.Windows.Forms.RadioButton PlayersHvC;
+        public System.Windows.Forms.RadioButton PlayesrHvH;
+        public System.Windows.Forms.RadioButton PlayerLevel3;
+        public System.Windows.Forms.RadioButton PlayerLevel2;
+        public System.Windows.Forms.RadioButton PlayerLevel1;
+        public System.Windows.Forms.TextBox BlackPlayerName;
+        public System.Windows.Forms.TextBox WhitePlayerName;
+        public System.Windows.Forms.PictureBox WhitePlayerImage;
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.Container components = null;
 
-		public NewGame()
-		{
-			//
-			// Required for Windows Form Designer support
-			//
-			InitializeComponent();
+        public NewGame()
+        {
+            //
+            // Required for Windows Form Designer support
+            //
+            InitializeComponent();
 
-			//
-			// TODO: Add any constructor code after InitializeComponent call
-			//
-		}
+            //
+            // TODO: Add any constructor code after InitializeComponent call
+            //
+        }
 
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		protected override void Dispose( bool disposing )
-		{
-			if( disposing )
-			{
-				if(components != null)
-				{
-					components.Dispose();
-				}
-			}
-			base.Dispose( disposing );
-		}
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        protected override void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+                if(components != null)
+                {
+                    components.Dispose();
+                }
+            }
+            base.Dispose( disposing );
+        }
 
-		#region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		private void InitializeComponent()
-		{
+        #region Windows Form Designer generated code
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewGame));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.PlayersCvC = new System.Windows.Forms.RadioButton();
@@ -291,20 +291,20 @@ namespace Chess
             ((System.ComponentModel.ISupportInitialize)(this.WhitePlayerImage)).EndInit();
             this.ResumeLayout(false);
 
-		}
-		#endregion
+        }
+        #endregion
 
-		private void btnStart_Click(object sender, System.EventArgs e)
-		{
-			bStartGame=true;
-			this.Close();	// close the form
-		}
+        private void btnStart_Click(object sender, System.EventArgs e)
+        {
+            bStartGame=true;
+            this.Close();    // close the form
+        }
 
-		private void btnCancel_Click(object sender, System.EventArgs e)
-		{
-			bStartGame=false;
-			this.Close();	// close the form
-		}
+        private void btnCancel_Click(object sender, System.EventArgs e)
+        {
+            bStartGame=false;
+            this.Close();    // close the form
+        }
 
         private void PlayesrType_CheckedChanged(object sender, EventArgs e)
         {
@@ -336,5 +336,5 @@ namespace Chess
         {
             (sender as TextBox).Select(0, (sender as TextBox).Text.Length);
         }
-	}
+    }
 }
