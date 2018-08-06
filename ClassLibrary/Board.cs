@@ -31,6 +31,21 @@ namespace ChessLibrary
             m_cells = new Cells();                    // Initialize the chess cells collection
         }
 
+        public Side WhiteSide
+        {
+            get
+            {
+                return this.m_WhiteSide;
+            }
+        }
+        public Side BlackSide
+        {
+            get
+            {
+                return this.m_BlackSide;
+            }
+        }
+
         // Initialize the chess board and place piece on thier initial positions
         public void Init(string gameMode)
         {
