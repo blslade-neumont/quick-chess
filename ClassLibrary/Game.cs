@@ -25,6 +25,8 @@ namespace ChessLibrary
         // Define delegates used to communicate the chess events to the UI
         public delegate void ChessComputerThinking(int depth, int currentMove, int TotalMoves, int TotalAnalzyed , Move BestMove);
 
+        public string GameMode = "Normal"; //"Normal" or "Chess360". Other values are treated as "Normal"
+
         public event ChessComputerThinking ComputerThinking;    // Event used to fire computer thinking status
 
         public Board Board;                    // expose the game board to outside world
@@ -229,7 +231,7 @@ namespace ChessLibrary
 
             GameTurn = Side.SideType.White;    // In chess first turn is always of white
             m_WhitePlayer.TimeStart();    // Player time starts
-            Board.Init();    // Initialize the board object
+            Board.Init(this.GameMode);    // Initialize the board object
         }
 
         // Return back the white player reference

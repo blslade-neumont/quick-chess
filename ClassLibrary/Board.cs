@@ -32,7 +32,7 @@ namespace ChessLibrary
         }
 
         // Initialize the chess board and place piece on thier initial positions
-        public void Init()
+        public void Init(string gameMode)
         {
             m_cells.Clear();        // Remove any existing chess cells
 
@@ -43,29 +43,74 @@ namespace ChessLibrary
                     m_cells.Add(new Cell(row,col));    // Initialize and add the new chess cell
                 }
 
+            if (gameMode == "Chess960") this.InitChess960();
+            else this.InitNormal();
+        }
+
+        private void InitNormal()
+        {
             // Now setup the board for black side
-            m_cells["a1"].piece = new Piece(Piece.PieceType.Rook,m_BlackSide);
-            m_cells["h1"].piece = new Piece(Piece.PieceType.Rook,m_BlackSide);
-            m_cells["b1"].piece = new Piece(Piece.PieceType.Knight,m_BlackSide);
-            m_cells["g1"].piece = new Piece(Piece.PieceType.Knight,m_BlackSide);
-            m_cells["c1"].piece = new Piece(Piece.PieceType.Bishop,m_BlackSide);
-            m_cells["f1"].piece = new Piece(Piece.PieceType.Bishop,m_BlackSide);
-            m_cells["e1"].piece = new Piece(Piece.PieceType.King,m_BlackSide);
-            m_cells["d1"].piece = new Piece(Piece.PieceType.Queen,m_BlackSide);
-            for (int col=1; col<=8; col++)
-                m_cells[2, col].piece = new Piece(Piece.PieceType.Pawn,m_BlackSide);
+            m_cells["a1"].piece = new Piece(Piece.PieceType.Rook, m_BlackSide);
+            m_cells["h1"].piece = new Piece(Piece.PieceType.Rook, m_BlackSide);
+            m_cells["b1"].piece = new Piece(Piece.PieceType.Knight, m_BlackSide);
+            m_cells["g1"].piece = new Piece(Piece.PieceType.Knight, m_BlackSide);
+            m_cells["c1"].piece = new Piece(Piece.PieceType.Bishop, m_BlackSide);
+            m_cells["f1"].piece = new Piece(Piece.PieceType.Bishop, m_BlackSide);
+            m_cells["e1"].piece = new Piece(Piece.PieceType.King, m_BlackSide);
+            m_cells["d1"].piece = new Piece(Piece.PieceType.Queen, m_BlackSide);
+            for (int col = 1; col <= 8; col++)
+                m_cells[2, col].piece = new Piece(Piece.PieceType.Pawn, m_BlackSide);
 
             // Now setup the board for white side
-            m_cells["a8"].piece = new Piece(Piece.PieceType.Rook,m_WhiteSide);
-            m_cells["h8"].piece = new Piece(Piece.PieceType.Rook,m_WhiteSide);
-            m_cells["b8"].piece = new Piece(Piece.PieceType.Knight,m_WhiteSide);
-            m_cells["g8"].piece = new Piece(Piece.PieceType.Knight,m_WhiteSide);
-            m_cells["c8"].piece = new Piece(Piece.PieceType.Bishop,m_WhiteSide);
-            m_cells["f8"].piece = new Piece(Piece.PieceType.Bishop,m_WhiteSide);
-            m_cells["e8"].piece = new Piece(Piece.PieceType.King,m_WhiteSide);
-            m_cells["d8"].piece = new Piece(Piece.PieceType.Queen,m_WhiteSide);
-            for (int col=1; col<=8; col++)
-                m_cells[7, col].piece = new Piece(Piece.PieceType.Pawn,m_WhiteSide);
+            m_cells["a8"].piece = new Piece(Piece.PieceType.Rook, m_WhiteSide);
+            m_cells["h8"].piece = new Piece(Piece.PieceType.Rook, m_WhiteSide);
+            m_cells["b8"].piece = new Piece(Piece.PieceType.Knight, m_WhiteSide);
+            m_cells["g8"].piece = new Piece(Piece.PieceType.Knight, m_WhiteSide);
+            m_cells["c8"].piece = new Piece(Piece.PieceType.Bishop, m_WhiteSide);
+            m_cells["f8"].piece = new Piece(Piece.PieceType.Bishop, m_WhiteSide);
+            m_cells["e8"].piece = new Piece(Piece.PieceType.King, m_WhiteSide);
+            m_cells["d8"].piece = new Piece(Piece.PieceType.Queen, m_WhiteSide);
+            for (int col = 1; col <= 8; col++)
+                m_cells[7, col].piece = new Piece(Piece.PieceType.Pawn, m_WhiteSide);
+        }
+
+        private void InitChess960()
+        {
+            var rnd = new Random();
+
+            this.InitChess960_Side(rnd, m_BlackSide, 1, 2);
+            this.InitChess960_Side(rnd, m_WhiteSide, 8, 7);
+        }
+        private void InitChess960_Side(Random rnd, Side side, int homeRow, int pawnRow)
+        {
+            var king = rnd.Next(2, 8);
+            var rook1 = rnd.Next(1, king);
+            var rook2 = rnd.Next(king + 1, 9);
+            int bishop1 = king, bishop2 = king;
+            while (bishop1 == king || bishop1 == rook1 || bishop1 == rook2)
+                bishop1 = rnd.Next(1, 9);
+            while (bishop2 == king || bishop2 == rook1 || bishop2 == rook2 || bishop1 % 2 == bishop2 % 2)
+                bishop2 = rnd.Next(1, 9);
+
+            //TODO MAYBE: handle these three more efficiently?
+            int knight1 = king, knight2 = king, queen = king;
+            while (knight1 == king || knight1 == rook1 || knight1 == rook2 || knight1 == bishop1 || knight1 == bishop2)
+                knight1 = rnd.Next(1, 9);
+            while (knight2 == king || knight2 == rook1 || knight2 == rook2 || knight2 == bishop1 || knight2 == bishop2 || knight2 == knight1)
+                knight2 = rnd.Next(1, 9);
+            while (queen == king || queen == rook1 || queen == rook2 || queen == bishop1 || queen == bishop2 || queen == knight1 || queen == knight2)
+                queen = rnd.Next(1, 9);
+
+            m_cells[homeRow, rook1].piece = new Piece(Piece.PieceType.Rook, side);
+            m_cells[homeRow, rook2].piece = new Piece(Piece.PieceType.Rook, side);
+            m_cells[homeRow, knight1].piece = new Piece(Piece.PieceType.Knight, side);
+            m_cells[homeRow, knight2].piece = new Piece(Piece.PieceType.Knight, side);
+            m_cells[homeRow, bishop1].piece = new Piece(Piece.PieceType.Bishop, side);
+            m_cells[homeRow, bishop2].piece = new Piece(Piece.PieceType.Bishop, side);
+            m_cells[homeRow, king].piece = new Piece(Piece.PieceType.King, side);
+            m_cells[homeRow, queen].piece = new Piece(Piece.PieceType.Queen, side);
+            for (int col = 1; col <= 8; col++)
+                m_cells[pawnRow, col].piece = new Piece(Piece.PieceType.Pawn, side);
         }
 
         // get the new item by rew and column

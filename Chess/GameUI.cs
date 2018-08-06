@@ -450,6 +450,8 @@ namespace Chess
             {
                 ChessGame = new Game();
 
+                ChessGame.GameMode = (string)NewGameDlg.GameMode.SelectedItem;
+
                 // Handle the events fired by the library
                 ChessGame.ComputerThinking += new ChessLibrary.Game.ChessComputerThinking(ComputerThinking);
 

@@ -20,6 +20,7 @@ namespace Chess
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnCancel;
 
@@ -33,6 +34,8 @@ namespace Chess
         public System.Windows.Forms.TextBox BlackPlayerName;
         public System.Windows.Forms.TextBox WhitePlayerName;
         public System.Windows.Forms.PictureBox WhitePlayerImage;
+        public System.Windows.Forms.ComboBox GameMode;
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -89,12 +92,15 @@ namespace Chess
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.WhitePlayerName = new System.Windows.Forms.TextBox();
             this.WhitePlayerImage = new System.Windows.Forms.PictureBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.GameMode = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BlackPlayerImage)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WhitePlayerImage)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -262,11 +268,35 @@ namespace Chess
             this.WhitePlayerImage.TabIndex = 1;
             this.WhitePlayerImage.TabStop = false;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox5.Controls.Add(this.GameMode);
+            this.groupBox5.Location = new System.Drawing.Point(24, 218);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(160, 43);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Game Mode";
+            // 
+            // GameMode
+            // 
+            this.GameMode.FormattingEnabled = true;
+            this.GameMode.Items.AddRange(new object[] {
+            "Normal",
+            "Chess960"});
+            this.GameMode.Location = new System.Drawing.Point(7, 14);
+            this.GameMode.Name = "GameMode";
+            this.GameMode.Size = new System.Drawing.Size(147, 21);
+            this.GameMode.TabIndex = 0;
+            this.GameMode.Text = "Normal";
+            // 
             // NewGame
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(374, 284);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnStart);
@@ -289,6 +319,7 @@ namespace Chess
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WhitePlayerImage)).EndInit();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
